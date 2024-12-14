@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul des Moyennes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans antialiased">
+
+<div class="container mx-auto p-6">
+    <h1 class="text-4xl font-semibold text-center mb-6">Calcul des Moyennes Pondérées</h1>
+
+    <form id="gradeForm" class="space-y-6">
+        <!-- En-têtes de colonnes pour S1, S2 et Coef -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full table-auto border-collapse">
+                <thead>
+                    <tr>
+                        <th class="border px-4 py-2">Matière</th>
+                        <th class="border px-4 py-2">S1</th>
+                        <th class="border px-4 py-2">S2</th>
+                        <th class="border px-4 py-2">Coefficient</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Matière Mathématiques -->
+                    <tr>
+                        <td class="border px-4 py-2">Mathématiques</td>
+                        <td><input type="number" id="mathS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="mathS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="mathCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="6"></td>
+                    </tr>
+
+                    <!-- Matière Physique -->
+                    <tr>
+                        <td class="border px-4 py-2">Physique</td>
+                        <td><input type="number" id="phyS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="phyS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="phyCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="4"></td>
+                    </tr>
+
+                    <!-- Matière SVT -->
+                    <tr>
+                        <td class="border px-4 py-2">SVT</td>
+                        <td><input type="number" id="svtS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="svtS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="svtCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="2"></td>
+                    </tr>
+
+                    <!-- Matière Littérature -->
+                    <tr>
+                        <td class="border px-4 py-2">Littérature</td>
+                        <td><input type="number" id="litS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="litS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="litCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="2"></td>
+                    </tr>
+
+                    <!-- Matière Langue Française -->
+                    <tr>
+                        <td class="border px-4 py-2">Langue Française</td>
+                        <td><input type="number" id="frS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="frS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="frCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="2"></td>
+                    </tr>
+
+                    <!-- Matière Anglais -->
+                    <tr>
+                        <td class="border px-4 py-2">Anglais</td>
+                        <td><input type="number" id="engS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="engS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="engCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="3"></td>
+                    </tr>
+
+                    <!-- Matière Chimie -->
+                    <tr>
+                        <td class="border px-4 py-2">Chimie</td>
+                        <td><input type="number" id="chemS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="chemS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="chemCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="2"></td>
+                    </tr>
+
+                    <!-- Matière Philosophie -->
+                    <tr>
+                        <td class="border px-4 py-2">Philosophie</td>
+                        <td><input type="number" id="philoS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="philoS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="philoCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="1"></td>
+                    </tr>
+
+                    <!-- Matière Éducation Physique et Sportive (EPS) -->
+                    <tr>
+                        <td class="border px-4 py-2">Éducation Physique et Sportive</td>
+                        <td><input type="number" id="epsS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="epsS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="epsCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="1"></td>
+                    </tr>
+
+                    <!-- Matière Histoire-Géographie -->
+                    <tr>
+                        <td class="border px-4 py-2">Histoire-Géographie</td>
+                        <td><input type="number" id="hgS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="hgS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="hgCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="4"></td>
+                    </tr>
+
+                    <!-- Matière Éducation à la Citoyenneté et Morale (ECM) -->
+                    <tr>
+                        <td class="border px-4 py-2">Éducation à la Citoyenneté et Morale</td>
+                        <td><input type="number" id="ecmS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="ecmS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="ecmCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="1"></td>
+                    </tr>
+
+                    <!-- Matière Informatique -->
+                    <tr>
+                        <td class="border px-4 py-2">Informatique</td>
+                        <td><input type="number" id="itS1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S1"></td>
+                        <td><input type="number" id="itS2" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Note S2"></td>
+                        <td><input type="number" id="itCoef" class="w-full px-4 py-2 border border-gray-300 rounded-lg" value="2"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bouton pour calculer la moyenne -->
+        <div class="text-center">
+            <button type="button" id="calculateBtn" class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg">Calculer la Moyenne</button>
+        </div>
+    </form>
+
+    <!-- Résultat -->
+    <div id="result" class="mt-6 text-center text-xl font-bold">
+        <!-- Résultat de la moyenne pondérée -->
+    </div>
+</div>
+
+<script>
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+        let totalPoints = 0;
+        let totalCoef = 0;
+        
+        const subjects = [
+            {name: 'Mathématiques', s1: parseFloat(document.getElementById('mathS1').value), s2: parseFloat(document.getElementById('mathS2').value), coef: parseFloat(document.getElementById('mathCoef').value)},
+            {name: 'Physique', s1: parseFloat(document.getElementById('phyS1').value), s2: parseFloat(document.getElementById('phyS2').value), coef: parseFloat(document.getElementById('phyCoef').value)},
+            {name: 'SVT', s1: parseFloat(document.getElementById('svtS1').value), s2: parseFloat(document.getElementById('svtS2').value), coef: parseFloat(document.getElementById('svtCoef').value)},
+            {name: 'Littérature', s1: parseFloat(document.getElementById('litS1').value), s2: parseFloat(document.getElementById('litS2').value), coef: parseFloat(document.getElementById('litCoef').value)},
+            {name: 'Langue Française', s1: 13, s2: 10, coef: 2},
+            {name: 'Anglais', s1: parseFloat(document.getElementById('engS1').value), s2: parseFloat(document.getElementById('engS2').value), coef: parseFloat(document.getElementById('engCoef').value)},
+            {name: 'Chimie', s1: parseFloat(document.getElementById('chemS1').value), s2: parseFloat(document.getElementById('chemS2').value), coef: parseFloat(document.getElementById('chemCoef').value)},
+            {name: 'Philosophie', s1: parseFloat(document.getElementById('philoS1').value), s2: parseFloat(document.getElementById('philoS2').value), coef: parseFloat(document.getElementById('philoCoef').value)},
+            {name: 'Éducation Physique et Sportive', s1: parseFloat(document.getElementById('epsS1').value), s2: parseFloat(document.getElementById('epsS2').value), coef: parseFloat(document.getElementById('epsCoef').value)},
+            {name: 'Histoire-Géographie', s1: parseFloat(document.getElementById('hgS1').value), s2: parseFloat(document.getElementById('hgS2').value), coef: parseFloat(document.getElementById('hgCoef').value)},
+            {name: 'Éducation à la Citoyenneté et Morale', s1: parseFloat(document.getElementById('ecmS1').value), s2: parseFloat(document.getElementById('ecmS2').value), coef: parseFloat(document.getElementById('ecmCoef').value)},
+            {name: 'Informatique', s1: parseFloat(document.getElementById('itS1').value), s2: parseFloat(document.getElementById('itS2').value), coef: parseFloat(document.getElementById('itCoef').value)}
+        ];
+
+        subjects.forEach(subject => {
+            let moyenne = (subject.s1 + subject.s2) / 2;
+            totalPoints += moyenne * subject.coef;
+            totalCoef += subject.coef;
+        });
+
+        let moyennePonderee = totalPoints / totalCoef;
+        
+        document.getElementById('result').innerText = 'Moyenne Pondérée: ' + moyennePonderee.toFixed(2);
+    });
+</script>
+
+</body>
+</html>
